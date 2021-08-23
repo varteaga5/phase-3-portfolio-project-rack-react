@@ -1,26 +1,29 @@
 import React from "react";
 import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { CATEGORIES } from "./data";
 import DisplayTask from "./components/DisplayTask";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // nestles all components in Router
+    <Router>
+      <div className="App">
+        <NavBar />
+        {/* switch is optional, switch and exact go together, finds first match and then stops, renders one at a time */}
+        <Switch>
+          {/* route that goes home */}
+          <Route exact path="/">
+            <Home />
+          </Route>
+          {/* route that goes to FoodList */}
+          <Route path="/FoodList">
+            <FoodList />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
