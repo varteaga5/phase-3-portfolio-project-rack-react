@@ -1,5 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { CATEGORIES } from "./data";
+import DisplayTask from "./components/DisplayTask";
 
 function App() {
   return (
